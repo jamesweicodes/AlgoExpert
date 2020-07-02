@@ -1,0 +1,9 @@
+def getNthFib(n, memoize = {1:0,2:1}):
+	if n in memoize:
+		#this is when fib number is 1 and 2
+		return memoize[n]
+	else:
+		#runs n into function and saves into memoize and returns it 
+		memoize[n]= getNthFib(n-1,memoize) + getNthFib(n-2,memoize)
+		return memoize[n]
+    

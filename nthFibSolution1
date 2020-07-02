@@ -1,0 +1,12 @@
+def getNthFib(n):
+    
+	if n ==2:
+		return 1
+	elif n ==1:
+		return 0
+	else:
+		return getNthFib(n-1)+ getNthFib(n-2)
+	#O(2^n) as it would have to recalucate in recursive, looks like a
+	#tree as 2 times 2 times 2
+	
+	#O(n)space

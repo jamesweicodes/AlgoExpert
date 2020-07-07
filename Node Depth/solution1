@@ -1,0 +1,30 @@
+def nodeDepths(root):
+	#running sum 
+	sumOfDepths = 0
+	#have a stack to traverse root and depth 
+	stack = [{"node":root,"depth":0}]
+	
+	#len of stack  bigger than 0 
+	while len(stack)>0:
+		#then pop off stack
+		nodeInfo = stack.pop()
+		node,depth = nodeInfo["node"], nodeInfo["depth"]
+		#null values 
+		if node is None:
+			continue
+		#add to sum of depth 
+		sumOfDepths += depth
+		#append vals of stack (children nodes), (left and right) +1
+		stack.append({"node":node.left,"depth":depth+1})
+		stack.append({"node":node.right,"depth":depth+1})
+	return sumOfDepths
+		
+		
+
+class BinaryTree:
+	def __init__(self,value):
+		self.value = value
+		self.right = None
+		self.left = None
+	
+	

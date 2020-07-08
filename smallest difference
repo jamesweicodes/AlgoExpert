@@ -1,0 +1,34 @@
+def smallestDifference(arrayOne, arrayTwo):
+	#sort our fist and second array to low to high 
+    arrayOne.sort()
+	arrayTwo.sort()
+	#our pointers on left and right array
+	idxOne= 0
+	idxTwo=0
+	
+	smallest= float("inf")
+	current= float("inf")
+	#smallest pair to return
+	smallestPair = []
+	#pointer has to be less unless we are done 
+	while idxOne <  len(arrayOne) and idxTwo < len(arrayTwo):
+		#set first and second num  to the array in idx comparison
+		firstNum = arrayOne[idxOne]
+		secondNum = arrayTwo[idxTwo]
+		#if first less than second then current is second - first, +1 to pointer
+		if firstNum < secondNum:
+			current = secondNum - firstNum
+			idxOne +=1
+			#if second num is > than first then first - second,+1 to pointer
+		elif secondNum < firstNum:
+			current = firstNum- secondNum			
+			idxTwo += 1
+			
+		else:
+			return[firstNum,secondNum]
+		#if smallest > current then make current the highest and return pair 
+		if smallest > current:
+			smallest = current
+			smallestPair = [firstNum,secondNum]
+	return smallestPair
+		

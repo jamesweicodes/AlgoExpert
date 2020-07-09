@@ -1,0 +1,19 @@
+def moveElementToEnd(array, toMove):
+	#initialze i on left
+	i = 0
+	#initialize j on right side 
+	j = len(array)-1
+	#make sure they dont overlap
+	while i < j:
+		#while they dont over lap again because this is where it will overlap on last case
+		while array[j] == toMove and i < j:
+			#if == to Move then j will move left 
+			j -= 1
+			#once it stops moving left array array i will swap with array j to move the correct val to end of right 
+		if array[i] == toMove:
+			array[i], array[j] = array[j],array[i]
+			# add one to move to next once swapped
+		i += 1
+	return array
+    
+    

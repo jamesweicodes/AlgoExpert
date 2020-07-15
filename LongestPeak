@@ -1,0 +1,38 @@
+def longestPeak(array):
+    # Write your code here.
+	# increase and decrease is our peak
+	#part 1 separte 0 find all epaks
+	#part 2 then compare 
+	#if array+1 is bigge than previous but nextb array+2
+	#but bigger thn we found peak
+	#find how long tips are (to find length of peaks)
+	#increase plus decrease than we count till the edges 
+	#init 0
+	longestPeakLength= 0 
+	#set i = 1 because in order for pek to be a pesk it needs less of left/right
+	i = 1
+	#cant have peak on edges
+	while i < len(array)-1:
+		#current val is higher than left and right 
+		isPeak = array[i-1] <array[i]  and array[i]> array[i+1]
+		if not isPeak: #if not peak, we are done and continue i+1
+			i += 1 
+			continue
+		# check if left index is less than left of pek
+		leftIdx = i-1
+		#while indx bigger than 0 and left is smsller than right, continue left
+		while leftIdx >= 0 and array[leftIdx] <array[leftIdx +1]:
+			leftIdx -= 1
+		rightIdx = i +1
+		while rightIdx < len(array) and array[rightIdx]<array[rightIdx-1]:
+			rightIdx +=1
+		
+		currentPeakLength = rightIdx - leftIdx -1
+		longestPeakLength = max(longestPeakLength , currentPeakLength)
+		
+		i = rightIdx 
+		
+	return longestPeakLength
+	
+		
+	

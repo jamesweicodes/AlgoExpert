@@ -1,0 +1,23 @@
+#time is O(n)
+#space is O(d) where d is depth of tree, calling bst helper on frames until branch is done
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+#helper function root node of min and max,(tree) 
+def validateBst(tree):
+    return validateBstHelper(tree,float("-inf"),float("inf"))
+#pass in min and max val
+def validateBstHelper(tree,minValue,maxValue):
+	#if tree is none, then it is valid 
+	if tree is None:
+		return True
+	#between min and max, so if it is less or more than we retuen false
+	if tree.value <minValue or tree.value >= maxValue:
+		return False
+	#left is valid when left is smaller than tree
+	leftIsValid = validateBstHelper(tree.left,minValue, tree.value)
+	#both left and right is valid return it, the right has to be max and tree value is min
+	return leftIsValid and validateBstHelper(tree.right,tree.value, maxValue)

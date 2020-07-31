@@ -1,0 +1,13 @@
+def twoNumberSum(array, targetSum):
+	#for left iter
+    for i in range(len(array)-1):
+		#read in first num
+		firstNum = array[i]
+		#j is our right num so it skips left num and iter till the last num in array
+		for j in range(i+1,len(array)):
+			#iterate second array
+			secondNum = array[j]
+			#if equal then return pair
+			if firstNum +secondNum == targetSum:
+				return [firstNum,secondNum]
+	return[]

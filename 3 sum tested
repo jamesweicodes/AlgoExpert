@@ -1,0 +1,37 @@
+def threeNumberSum(array,targetSum):
+	#sort array
+	#triplets array
+	# range or len -2 because we always have left and right pointer
+	#left = i+1
+	#right is len array-1
+	#while left is less than right because we dont want left to cross over 
+	# current sum is arrary i plus array left anf array right 
+	#left +=1 and right += 1
+	#if currentsum < targetsum then we increment left to right 
+	#current sum > target sum then we increment right to the left 
+	#return triplets
+	
+	
+	array.sort()
+	triplets = []
+	for i in range(len(array)-2):
+		left = i +1 
+		right = len(array)-1
+		while left < right:
+			
+			currentSum = array[i] + array[left]+array[right]
+			if currentSum == targetSum:
+				triplets.append([array[i],array[left],array[right]])
+				left +=1
+				right -=1
+			elif currentSum < targetSum:
+				left+=1
+			elif currentSum > targetSum:
+				right -=1 
+	return triplets
+				
+			
+		
+		
+	
+	

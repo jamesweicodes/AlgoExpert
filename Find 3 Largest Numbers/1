@@ -1,0 +1,30 @@
+#time is on where n is length of array and we need to traverse through array
+#, each number in array, we have finite amount we need to make 
+#space complex is 01 because we dont use additional memory just store 3 array numbers as a constant 
+def findThreeLargestNumbers(array):
+	threeLargest = [None,None,None]
+	for num in array:
+		updateLargest(threeLargest,num)
+	return threeLargest
+#above we are def function of three largest numbers. 
+#we iterate within the array and call the helper function we need to run the function of three largest
+
+def updateLargest(threeLargest,num):
+	if threeLargest[2] is None or num > threeLargest[2]:
+		shiftAndUpdate(threeLargest,num,2)
+	elif threeLargest[1] is None or num > threeLargest[1]:
+		shiftAndUpdate(threeLargest,num,1)
+	elif threeLargest[0] is None or num > threeLargest[0]:
+		shiftAndUpdate(threeLargest,num,0)
+	#this is the function to shift all three numbers if neccessary 
+	#range starts at 1 so we need to add idx to 1
+	#if not the idx we set the current array to the next array index 
+def shiftAndUpdate(array,num,idx):
+	for i in range(idx+1):
+		if i == idx:
+			array[i] = num 
+		else:
+			array[i] = array[i+1]
+
+
+	

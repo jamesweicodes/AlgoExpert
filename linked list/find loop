@@ -1,0 +1,30 @@
+#1st ptr is d+p
+#2nd ptr is 2d +2p as we skip every othe node
+# total of linked list = t, 2nd ptr goes total plus extra arc
+#2nd ptr = 2D +2P 
+#total = 2d + 2p -p = 2d +p
+
+
+#Space constant o1 as we are only using ptr
+# time is on, traverse n time we move 1st ptr x time,, ptr 1 
+#ptr 1 goes n nodes and it is the slower one
+
+
+# This is an input class. Do not edit.
+class LinkedList:
+    def __init__(self, value):
+        self.value = value
+        self.next = None
+
+
+def findLoop(head):
+    first = head.next 
+	second = head.next.next 
+	while first != second: 
+		first = first.next 
+		second = second.next.next
+	first = head
+	while first != second:
+		first = first.next
+		second = second.next 
+	return first 
